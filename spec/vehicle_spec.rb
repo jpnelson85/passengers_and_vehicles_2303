@@ -22,6 +22,7 @@ RSpec.describe Vehicle do
   end
 
   it 'add passenger method' do
+    vehicle = Vehicle.new("2001", "Honda", "Civic") 
     charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
     jude = Passenger.new({"name" => "Jude", "age" => 20})  
     taylor = Passenger.new({"name" => "Taylor", "age" => 12})  
@@ -32,6 +33,7 @@ RSpec.describe Vehicle do
   end
 
   it 'num_adults method' do
+    vehicle = Vehicle.new("2001", "Honda", "Civic") 
     charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
     jude = Passenger.new({"name" => "Jude", "age" => 20})  
     taylor = Passenger.new({"name" => "Taylor", "age" => 12})  
