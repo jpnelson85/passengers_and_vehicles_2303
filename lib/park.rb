@@ -15,10 +15,14 @@ class Park
   end
 
   def passengers
-    @vehicles
+    array_of_passengers = []
+    @vehicles.each do |car|
+      array_of_passengers.concat(car.passengers)
+    end
+    array_of_passengers
   end
 
   def revenue
-
+    @admission_price * passeengers.count
   end
 end
