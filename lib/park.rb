@@ -23,6 +23,30 @@ class Park
   end
 
   def revenue
-    @admission_price * passeengers.count
+    @admission_price * passengers.count
+  end
+
+  def all_attendees
+    array_of_passengers = []
+    passengers.each do |car|
+      array_of_passengers << car.passengers.name
+    end
+    array_of_passengers.sort
+  end
+
+  def minors
+    passengers.select do |passenger|
+      if passenger.age < 18
+        passenger.name.sort
+      end
+    end
+  end
+
+  def adults
+    passengers.select do |passenger|
+      if passenger.age >= 18
+        passenger.name.sort
+      end
+    end
   end
 end

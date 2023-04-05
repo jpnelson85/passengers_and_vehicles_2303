@@ -47,6 +47,45 @@ RSpec.describe Park do
     vehicle_1.add_passenger(charlie) 
     vehicle_1.add_passenger(jude)
     vehicle_1.add_passenger(taylor)
-    expect()
+    expect(park.revenue).to eq(21)
+  end
+
+  it 'all_attendees method' do
+    charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
+    jude = Passenger.new({"name" => "Jude", "age" => 20})  
+    taylor = Passenger.new({"name" => "Taylor", "age" => 12})  
+    vehicle_1 = Vehicle.new("2001", "Honda", "Civic") 
+    vehicle_1.add_passenger(taylor)
+    vehicle_1.add_passenger(charlie) 
+    vehicle_1.add_passenger(jude)
+    park = Park.new("Indiana Dunes", 7)
+    park.add_vehicle(vehicle_1)
+    expect(park.all_attendees).to eq("Charlie", "Jude", "Taylor")
+  end
+
+  it 'minors method' do
+    park = Park.new("Indiana Dunes", 7)
+    vehicle_1 = Vehicle.new("2001", "Honda", "Civic") 
+    park.add_vehicle(vehicle_1)
+    charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
+    jude = Passenger.new({"name" => "Jude", "age" => 20})  
+    taylor = Passenger.new({"name" => "Taylor", "age" => 12})  
+    vehicle_1.add_passenger(taylor)
+    vehicle_1.add_passenger(charlie) 
+    vehicle_1.add_passenger(jude)
+    expect(park.minors).to eq(["Taylor"])
+  end
+
+  it 'adults method' do
+    park = Park.new("Indiana Dunes", 7)
+    vehicle_1 = Vehicle.new("2001", "Honda", "Civic") 
+    park.add_vehicle(vehicle_1)
+    charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
+    jude = Passenger.new({"name" => "Jude", "age" => 20})  
+    taylor = Passenger.new({"name" => "Taylor", "age" => 12})  
+    vehicle_1.add_passenger(taylor)
+    vehicle_1.add_passenger(charlie) 
+    vehicle_1.add_passenger(jude)
+    expect(park.adults).to eq("Charlie", "Jude")
   end
 end
